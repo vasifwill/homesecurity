@@ -1,5 +1,5 @@
 import React from 'react'
-import  Questions  from './Questions.js'
+import  Questions  from './Question.js'
 
  const Form = () => {
   return (
