@@ -2,14 +2,71 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content:flex-start;
+  border: solid 1px rgb(241, 1, 1) !important;
 }
 
 .App form{
-  border: solid 1px black !important;
+ border: solid 1px rgb(48, 7, 231) !important;
   display: flex;
+  padding: 1rem 5rem 5rem 1rem !important;
+  /* align-items: center; */
+  /* justify-content: center; */
   flex-direction: column;
+  height: 10rem !important;
+  
+  
+  
+}
+
+.App button{
+  width: 5rem;
+  color:rgb(31, 152, 189);
+  background-color: white;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 10%;
+  border:solid 3px rgb(33, 127, 235);
+  margin-top: 3px !important;
+}
+
+.App header{
+  color: rgb(0, 0, 0);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: larger;
+}
+
+.App p{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size:medium;
+}
+
+.App label{
+  width:fit-content;
+}
+
+.howItWorks{
+  margin: auto;
+}
+
+.App footer {
+  display: flex;
   align-items: center;
   justify-content: center;
-  
+  font-size: small;
+  padding: 3rem;
+  text-align: center;
+}
+
+.radio-input{
+
+}
+
+.radio-label{
+
+}
+
+.App input {
+  border: solid 2px rgb(8, 152, 248) !important;
+  margin-bottom: 10px;
+  border-radius: 3%;
 }
