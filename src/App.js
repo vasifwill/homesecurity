@@ -141,6 +141,7 @@ function App() {
 			city: city,
 			state: state,
 			address: address,
+			address2: address,
 			property_type: ans.find((an) => an.id === 1).value,
 			features: [...cbxAns],
 			system_type: ans.find((an) => an.id === 5).value,
