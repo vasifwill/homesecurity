@@ -132,7 +132,11 @@ function App() {
 
 		// const formatedUrl =
 
+		console.log(ans);
+
 		const payload = {
+			lp_campaign_id: process.env.REACT_APP_CAMP_ID,
+			lp_campaign_key: process.env.REACT_APP_CAMP_KEY,
 			first_name: firstName,
 			last_name: lastName,
 			phone_home: phoneNumber,
@@ -142,30 +146,34 @@ function App() {
 			state: state,
 			address: address,
 			address2: address,
-			property_type: ans.find((an) => an.id === 1).value,
+			property_type: ans.find((an) => an.id === 1)?.value,
 			features: [...cbxAns],
-			system_type: ans.find((an) => an.id === 5).value,
-			installation_preference: ans.find((an) => an.id === 3).value,
-			entrances: ans.find((an) => an.id === 6).value,
+			system_type: ans.find((an) => an.id === 5)?.value,
+			installation_preference: ans.find((an) => an.id === 3)?.value,
+			entrances: ans.find((an) => an.id === 6)?.value,
 		};
 
 		console.log({ payload: payload });
 
-		const response = await axios.post(
-			'https://bluemodo.leadspediatrack.com/post.do',
-			payload
-		);
-		console.log({ response });
+		try {
+			const response = await axios.post(
+				'https://bluemodo.leadspediatrack.com/post.do',
+				payload
+			);
+		} catch (e) {
+			alert(e.message);
+		}
 	};
 
 	const handleOptAns = (e, id, cbxOpts?) => {
 		if (cbxOpts) {
 			setCbxAns((prev) => [...cbxOpts]);
+		} else {
+			setCurrentOpt({
+				id: id,
+				value: e.target.value,
+			});
 		}
-		setCurrentOpt({
-			id: id,
-			value: e.target.value,
-		});
 	};
 	return (
 		<div className='App'>
