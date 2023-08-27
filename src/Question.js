@@ -150,7 +150,7 @@ const Questions = ({
 					))
 				) : q.title !== 'Your Details?' ? (
 					<>
-						<input onChange={handleZipCode} maxLength={5} id={q.id} />
+						<input onChange={handleZipCode} maxLength={q.id===4?5:20} id={q.id} />
 						{/* <span>{zipValid}</span> */}
 						{zipValid === 1 && <span>Not a valid : please enter manually</span>}
 
