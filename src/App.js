@@ -135,8 +135,8 @@ function App() {
 		console.log(ans);
 
 		const payload = {
-			lp_campaign_id: '64b9ccf73e38c',
-			lp_campaign_key: 'mYFhzwtX7LKWBGgD34Tb',
+			lp_campaign_id: process.env.REACT_APP_CAMP_ID,
+			lp_campaign_key: process.env.REACT_APP_CAMP_KEY,
 			first_name: firstName,
 			last_name: lastName,
 			phone_home: phoneNumber,
