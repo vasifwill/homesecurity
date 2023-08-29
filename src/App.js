@@ -165,7 +165,7 @@ function App() {
 				Quick and easy. Get matched with the best Home Security company in your
 				area.
 			</p>
-			{submitState ? <h1>Thank you for your information. We will get back to you soon</h1>:<>
+			{submitState ? <h1 style={{color:'blue'}}>Thank you for your information. We will get back to you soon.</h1>:<>
 			<p>
 				{currentIndex + 1}/{questions.length}
 			</p>
