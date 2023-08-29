@@ -7,9 +7,7 @@ import { useState } from 'react';
 import axios from 'axios';
 
 function App() {
-	const [start, setStart] = useState(false);
 	const [currentIndex, setCurrentIndex] = useState(0);
-	const [showSubmit, setShowSubmit] = useState(false);
 	const [ans, setAns] = useState([]);
 	const [currentOpt, setCurrentOpt] = useState('');
 	const [cbxAns, setCbxAns] = useState([]);
@@ -80,10 +78,9 @@ function App() {
 	// for zip and city,state
 	const [zipValid, setZipValid] = useState(0);
 	const [city, setCity] = useState('');
-
+    const [submitState, setSubmitState] = useState(false)
 	const [state, setState] = useState('');
 	const [address, setAddress] = useState('');
-
 	/// biodata
 	const [email, setEmail] = useState('');
 	const [firstName, setFirstName] = useState('');
@@ -119,21 +116,7 @@ function App() {
 	};
 
 	const handleSubmit = async () => {
-		// console.log({
-		// 	zipValid,
-		// 	city,
-		// 	state,
-		// 	email,
-		// 	firstName,
-		// 	lastName,
-		// 	phoneNumber,
-		// });
-		// console.log(ans, cbxAns);
-
-		// const formatedUrl =
-
-		console.log(ans);
-
+		setSubmitState(true);
 		const payload = {
 			lp_campaign_id: process.env.REACT_APP_CAMP_ID,
 			lp_campaign_key: process.env.REACT_APP_CAMP_KEY,
@@ -165,7 +148,7 @@ function App() {
 		}
 	};
 
-	const handleOptAns = (e, id, cbxOpts?) => {
+	const handleOptAns = (e, id, cbxOpts) => {
 		if (cbxOpts) {
 			setCbxAns((prev) => [...cbxOpts]);
 		} else {
@@ -182,6 +165,7 @@ function App() {
 				Quick and easy. Get matched with the best Home Security company in your
 				area.
 			</p>
+			{submitState ? <h1>Thank you for your information. We will get back to you soon</h1>:<>
 			<p>
 				{currentIndex + 1}/{questions.length}
 			</p>
@@ -223,6 +207,8 @@ function App() {
 					Submit{' '}
 				</button>
 			)}
+			</>}
+			
 			<div className='howItWorks'>
 				<h3>How it works</h3>
 				<p>
