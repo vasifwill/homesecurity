@@ -53,7 +53,6 @@ const Questions = ({
 	};
 
 	const handleEmail = async (e) => {
-		// https://emailvalidation.abstractapi.com/v1/?api_key=edabf12aa2524364942311c638c28431&email=vasif.will@gmail.com
 		const email = e.target.value;
 		if (email.includes('.com')) {
 			const validation = await axios.get(
@@ -73,7 +72,6 @@ const Questions = ({
 			setAddress(e.target.value);
 			return;
 		}
-		// https://app.zipcodebase.com/api/v1/search?apikey=f420c450-42dc-11ee-ab60-b9d14c287408&codes=92037&country=US
 		const zipCode = e.target.value;
 		setZipValid(0);
 		setState('');
@@ -90,8 +88,6 @@ const Questions = ({
 			const response = await axios.get(
 				`https://app.zipcodebase.com/api/v1/search?apikey=f420c450-42dc-11ee-ab60-b9d14c287408&codes=${zipCode}&country=US`
 			);
-
-			// console.log(response.data.results[zipCode][0]);
 			let parsedDataObj = null;
 			console.log(response.data.results);
 
@@ -151,7 +147,6 @@ const Questions = ({
 				) : q.title !== 'Your Details?' ? (
 					<>
 						<input onChange={handleZipCode} maxLength={q.id===4?5:20} id={q.id} />
-						{/* <span>{zipValid}</span> */}
 						{zipValid === 1 && <span>Not a valid : please enter manually</span>}
 
 						{zipValid !== 0 && (
@@ -203,7 +198,5 @@ const Questions = ({
 		</div>
 	);
 };
-
-// http://apilayer.net/api/validate?access_key=a277e97d03de1c6273716582e60c7c14&number=8572347368&country_code=US
 
 export default Questions;
